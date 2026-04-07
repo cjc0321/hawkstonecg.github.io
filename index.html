@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hawkstone Consulting Group — Construction Recruiting | Texas & Southwest</title>
+<meta name="description" content="Hawkstone Consulting Group places top-tier Project Managers, Superintendents, Estimators, and Construction Managers across Texas and the Southwest.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== BRAND TOKENS ===== */
+  :root {
+    --navy: #1a1a2e;
+    --blue: #0f3460;
+    --gold: #c8a45c;
+    --gold-light: #e8c97a;
+    --warm-white: #f5f5f0;
+    --text: #333;
+    --text-light: #777;
+  }
+
+  /* ===== NAVIGATION ===== */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(26, 26, 46, 0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.3s;
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 72px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo .mark {
+    width: 38px; height: 38px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--navy);
+  }
+  .nav-logo .wordmark {
+    font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: #fff;
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7);
+    letter-spacing: 0.5px; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy) !important; padding: 10px 24px; border-radius: 6px;
+    font-weight: 600 !important; font-size: 13px !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(200, 164, 92, 0.4); }
+  .mobile-menu { display: none; background: none; border: none; cursor: pointer; }
+  .mobile-menu span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #16213e 40%, var(--blue) 100%);
+    padding: 160px 0 120px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(200,164,92,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 700px; }
+  .hero-label {
+    font-size: 12px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 700;
+    line-height: 1.15; color: #fff; margin-bottom: 24px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p { font-size: 18px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 40px; max-width: 560px; }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy); padding: 16px 36px; border-radius: 6px; font-weight: 700;
+    font-size: 15px; display: inline-flex; align-items: center; gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(200,164,92,0.35); }
+  .btn-secondary {
+    background: transparent; color: #fff; padding: 16px 36px; border-radius: 6px;
+    font-weight: 600; font-size: 15px; border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.2s; cursor: pointer;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ===== STATS BAR ===== */
+  .stats {
+    background: #fff; margin-top: -40px; position: relative; z-index: 2;
+    border-radius: 12px; box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    padding: 40px; gap: 20px;
+  }
+  .stat { text-align: center; }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--navy); }
+  .stat-number span { color: var(--gold); }
+  .stat-label { font-size: 13px; color: var(--text-light); margin-top: 4px; }
+
+  /* ===== SECTIONS ===== */
+  .section { padding: 100px 0; }
+  .section-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 600;
+    color: var(--navy); margin-bottom: 16px; line-height: 1.25;
+  }
+  .section-desc { font-size: 16px; color: var(--text-light); max-width: 560px; margin-bottom: 48px; }
+
+  /* ===== SERVICES ===== */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: var(--warm-white); border-radius: 12px; padding: 36px;
+    transition: transform 0.3s, box-shadow 0.3s; border: 1px solid transparent;
+  }
+  .service-card:hover {
+    transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    border-color: rgba(200,164,92,0.2);
+  }
+  .service-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; font-size: 20px;
+  }
+  .service-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; color: var(--navy); }
+  .service-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+  /* ===== ROLES (Specialties) ===== */
+  .roles-section { background: linear-gradient(135deg, var(--navy), var(--blue)); color: #fff; }
+  .roles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .role-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 28px; display: flex; align-items: flex-start; gap: 16px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .role-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(200,164,92,0.3); }
+  .role-icon {
+    width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: var(--navy);
+  }
+  .role-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .role-card p { font-size: 13px; color: rgba(255,255,255,0.5); }
+
+  /* ===== WHY HAWKSTONE ===== */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .why-list { display: flex; flex-direction: column; gap: 28px; }
+  .why-item { display: flex; gap: 16px; align-items: flex-start; }
+  .why-num {
+    width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: var(--navy);
+  }
+  .why-item h4 { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .why-item p { font-size: 14px; color: var(--text-light); }
+  .why-visual {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    border-radius: 16px; padding: 60px 40px; color: #fff; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .why-visual::before {
+    content: ''; position: absolute; top: -30%; right: -30%; width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(200,164,92,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .why-visual .big-quote {
+    font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.3;
+    line-height: 1; margin-bottom: 20px;
+  }
+  .why-visual blockquote {
+    font-family: 'Playfair Display', serif; font-size: 22px; font-style: italic;
+    line-height: 1.6; position: relative; z-index: 1;
+  }
+  .why-visual cite {
+    display: block; margin-top: 20px; font-family: 'Inter', sans-serif;
+    font-size: 13px; font-style: normal; color: var(--gold); letter-spacing: 1px;
+  }
+
+  /* ===== MARKETS ===== */
+  .markets-section { background: var(--warm-white); }
+  .markets-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .market-card {
+    background: #fff; border-radius: 10px; padding: 28px; text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #eee;
+  }
+  .market-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.06); border-color: var(--gold); }
+  .market-card .city { font-size: 18px; margin-bottom: 8px; }
+  .market-card .city-img { width: 80px; height: 50px; margin: 0 auto 12px; }
+  .market-card h3 { font-size: 15px; font-weight: 600; color: var(--navy); }
+  .market-card p { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+
+  /* ===== CTA SECTION ===== */
+  .cta-section {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    padding: 100px 0; text-align: center; color: #fff; position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 600;
+    margin-bottom: 16px; line-height: 1.25;
+  }
+  .cta-section p { font-size: 17px; color: rgba(255,255,255,0.6); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* ===== CONTACT ===== */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 20px; }
+  .contact-item { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
+  .contact-item .icon-circle {
+    width: 40px; height: 40px; border-radius: 8px; flex-shrink: 0;
+    background: var(--warm-white); display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .contact-item span { font-size: 15px; color: var(--text); }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .contact-form input, .contact-form textarea, .contact-form select {
+    width: 100%; padding: 14px 18px; border: 1px solid #e0e0e0; border-radius: 8px;
+    font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text);
+    background: var(--warm-white); transition: border-color 0.2s;
+  }
+  .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+    outline: none; border-color: var(--gold);
+  }
+  .contact-form textarea { min-height: 120px; resize: vertical; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .btn-submit {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy); padding: 16px 36px; border-radius: 6px; font-weight: 700;
+    font-size: 15px; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(200,164,92,0.35); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--navy); color: rgba(255,255,255,0.5); padding: 60px 0 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
+  .footer-brand .mark-sm {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .footer-brand p { font-size: 13px; max-width: 280px; line-height: 1.7; }
+  .footer-links h4 { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .footer-links a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 10px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; padding-top: 24px; text-align: center; font-size: 12px; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .mobile-menu { display: block; }
+    .hero h1 { font-size: 38px; }
+    .hero { padding: 140px 0 100px; }
+    .stats { grid-template-columns: repeat(2, 1fr); margin-top: -30px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .roles-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .markets-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 30px; }
+  }
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: 1fr 1fr; padding: 24px; }
+    .hero-btns { flex-direction: column; }
+    .form-row { grid-template-columns: 1fr; }
+    .markets-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="mark">H</div>
+      <div class="wordmark">Hawkstone</div>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#specialties">Specialties</a>
+      <a href="#why">Why Us</a>
+      <a href="#markets">Markets</a>
+      <a href="#contact" class="nav-cta">Get Started</a>
+    </div>
+    <button class="mobile-menu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-label">Construction Recruiting &bull; Texas & Southwest</div>
+      <h1>We Place the People Who <span>Build the Future</span></h1>
+      <p>Hawkstone Consulting Group connects high-performing construction professionals with industry-leading firms. Deep market expertise. Confidential. Results-driven.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Find Talent →</a>
+        <a href="#contact" class="btn-secondary">I'm a Candidate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Bar -->
+<div class="container">
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number">75<span>K+</span></div>
+      <div class="stat-label">Construction Professionals in Network</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">$120<span>K+</span></div>
+      <div class="stat-label">Average Placement Salary</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">14</div>
+      <div class="stat-label">Day Average Time to Fill</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">96<span>%</span></div>
+      <div class="stat-label">Client Retention Rate</div>
+    </div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <div class="section-title">Recruiting Built for Construction</div>
+    <div class="section-desc">We don't dabble in construction recruiting — it's all we do. That focus means faster placements, better cultural fits, and candidates who stay.</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Direct Hire Placement</h3>
+        <p>Permanent placements for Project Managers, Superintendents, Estimators, and executive construction roles. Thorough vetting, fast turnaround.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Contract Staffing</h3>
+        <p>Flexible staffing for project surges, seasonal demand, or specific build phases. Qualified professionals ready to mobilize within days.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Executive Search</h3>
+        <p>Confidential retained searches for VP, Director, and C-level construction leadership. Discreet outreach to passive, high-caliber candidates.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Market Intelligence</h3>
+        <p>Compensation benchmarking, talent availability analysis, and competitive landscape insights to sharpen your hiring strategy.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>Candidate Advisory</h3>
+        <p>Confidential career guidance for construction professionals exploring their next move. Resume positioning, interview prep, and offer negotiation.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Project-Based Teams</h3>
+        <p>Full project management teams assembled for specific builds. PM, Super, Estimator, and Scheduler packages for general contractors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Specialties / Roles -->
+<section class="section roles-section" id="specialties">
+  <div class="container">
+    <div class="section-label" style="color: var(--gold);">Specialties</div>
+    <div class="section-title" style="color: #fff;">Roles We Place</div>
+    <div class="section-desc" style="color: rgba(255,255,255,0.5);">Deep expertise in the roles that drive construction projects forward — from pre-construction through closeout.</div>
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-icon">📋</div>
+        <div>
+          <h3>Project Managers</h3>
+          <p>Senior PMs, Assistant PMs, and Project Engineers across commercial, industrial, and civil sectors.</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🔨</div>
+        <div>
+          <h3>Superintendents</h3>
+          <p>General Supers, Area Supers, and Assistant Superintendents. Field leadership that delivers on schedule.</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">📐</div>
+        <div>
+          <h3>Estimators</h3>
+          <p>Chief Estimators, Senior Estimators, and Pre-Construction Managers. Accuracy that wins bids.</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">📅</div>
+        <div>
+          <h3>Schedulers</h3>
+          <p>P6 Schedulers, Planning Managers, and Project Controls specialists who keep builds on track.</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🏢</div>
+        <div>
+          <h3>Construction Executives</h3>
+          <p>VPs of Construction, Directors of Operations, Division Managers, and COOs for GCs and developers.</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🔧</div>
+        <div>
+          <h3>Safety & Quality</h3>
+          <p>Safety Directors, QA/QC Managers, and Environmental Compliance leads for safety-first organizations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Hawkstone -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-label">The Difference</div>
+    <div class="section-title">Why Clients Choose Hawkstone</div>
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">1</div>
+          <div>
+            <h4>Construction-Only Focus</h4>
+            <p>We don't recruit for tech, healthcare, or finance. 100% of our energy goes into construction talent. That depth translates to better matches, faster.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">2</div>
+          <div>
+            <h4>Southwest Market Expertise</h4>
+            <p>We know who's building what in Texas, Arizona, Nevada, and New Mexico. Market intelligence that generalist firms simply can't match.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">3</div>
+          <div>
+            <h4>Confidential Process</h4>
+            <p>Discretion is standard, not an upgrade. Whether you're a candidate exploring options or a company replacing a key leader, your business stays private.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">4</div>
+          <div>
+            <h4>Placement Guarantee</h4>
+            <p>Every direct hire comes with a replacement guarantee. If a placement doesn't work out within the guarantee period, we replace them at no additional cost.</p>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual">
+        <div class="big-quote">"</div>
+        <blockquote>They understood exactly what we needed. Two weeks later, we had a superintendent on-site who hit the ground running.</blockquote>
+        <cite>— General Contractor, Dallas-Fort Worth</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Markets -->
+<section class="section markets-section" id="markets">
+  <div class="container">
+    <div class="section-label">Where We Work</div>
+    <div class="section-title">Texas & Southwest Coverage</div>
+    <div class="section-desc">Primary focus on the fastest-growing construction markets in the country.</div>
+    <div class="markets-grid">
+      <div class="market-card">
+        <div class="city-img"><svg viewBox="0 0 80 50" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="15" width="8" height="35" fill="#c8a45c" opacity="0.7"/><rect x="22" y="5" width="10" height="45" fill="#1a1a2e" opacity="0.8"/><rect x="36" y="10" width="8" height="40" fill="#0f3460" opacity="0.7"/><rect x="48" y="20" width="12" height="30" fill="#c8a45c" opacity="0.5"/><rect x="64" y="18" width="8" height="32" fill="#1a1a2e" opacity="0.6"/><line x1="0" y1="50" x2="80" y2="50" stroke="#c8a45c" stroke-width="1"/><polygon points="26,5 27,0 28,5" fill="#c8a45c"/></svg></div>
+        <h3>Dallas–Fort Worth</h3>
+        <p>Commercial, Industrial, Data Centers</p>
+      </div>
+      <div class="market-card">
+        <div class="city-img"><svg viewBox="0 0 80 50" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="20" width="10" height="30" fill="#0f3460" opacity="0.6"/><rect x="18" y="12" width="8" height="38" fill="#1a1a2e" opacity="0.8"/><rect x="30" y="8" width="12" height="42" fill="#c8a45c" opacity="0.7"/><rect x="46" y="15" width="8" height="35" fill="#0f3460" opacity="0.7"/><rect x="58" y="10" width="10" height="40" fill="#1a1a2e" opacity="0.6"/><line x1="0" y1="50" x2="80" y2="50" stroke="#c8a45c" stroke-width="1"/><circle cx="70" cy="8" r="5" fill="none" stroke="#c8a45c" stroke-width="1" opacity="0.4"/></svg></div>
+        <h3>Houston</h3>
+        <p>Petrochemical, Healthcare, Mixed-Use</p>
+      </div>
+      <div class="market-card">
+        <div class="city-img"><svg viewBox="0 0 80 50" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="22" width="8" height="28" fill="#0f3460" opacity="0.6"/><rect x="28" y="12" width="6" height="38" fill="#1a1a2e" opacity="0.8"/><rect x="38" y="18" width="10" height="32" fill="#c8a45c" opacity="0.6"/><rect x="52" y="25" width="8" height="25" fill="#0f3460" opacity="0.5"/><path d="M5 50 Q20 35 35 38 Q50 40 65 30 Q75 25 80 28" fill="none" stroke="#c8a45c" stroke-width="1.5" opacity="0.5"/><polygon points="30,12 31,2 32,12" fill="#c8a45c"/></svg></div>
+        <h3>Austin</h3>
+        <p>Tech Campuses, Multi-Family, Civil</p>
+      </div>
+      <div class="market-card">
+        <div class="city-img"><svg viewBox="0 0 80 50" xmlns="http://www.w3.org/2000/svg"><path d="M30 50 L35 15 Q38 8 41 15 L46 50" fill="#c8a45c" opacity="0.3" stroke="#c8a45c" stroke-width="1"/><rect x="10" y="30" width="8" height="20" fill="#0f3460" opacity="0.6"/><rect x="55" y="25" width="10" height="25" fill="#1a1a2e" opacity="0.6"/><rect x="68" y="32" width="6" height="18" fill="#0f3460" opacity="0.5"/><line x1="0" y1="50" x2="80" y2="50" stroke="#c8a45c" stroke-width="1"/><circle cx="38" cy="22" r="2" fill="#c8a45c" opacity="0.6"/></svg></div>
+        <h3>San Antonio</h3>
+        <p>Military, Healthcare, Infrastructure</p>
+      </div>
+      <div class="market-card">
+        <div class="city-img"><svg viewBox="0 0 80 50" xmlns="http://www.w3.org/2000/svg"><circle cx="65" cy="12" r="8" fill="#c8a45c" opacity="0.2"/><circle cx="65" cy="12" r="4" fill="#c8a45c" opacity="0.4"/><path d="M10 50 L18 30 L26 50" fill="#1a1a2e" opacity="0.3"/><path d="M25 50 L35 25 L45 50" fill="#0f3460" opacity="0.3"/><rect x="50" y="28" width="8" height="22" fill="#1a1a2e" opacity="0.6"/><rect x="62" y="32" width="6" height="18" fill="#c8a45c" opacity="0.5"/><path d="M5 45 Q15 42 25 44 Q35 38 48 40" fill="none" stroke="#c8a45c" stroke-width="1" opacity="0.4"/></svg></div>
+        <h3>Phoenix</h3>
+        <p>Semiconductor, Residential, Commercial</p>
+      </div>
+      <div class="market-card">
+        <div class="city-img"><svg viewBox="0 0 80 50" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="25" width="8" height="25" fill="#0f3460" opacity="0.5"/><rect x="24" y="18" width="10" height="32" fill="#1a1a2e" opacity="0.7"/><rect x="38" y="22" width="6" height="28" fill="#c8a45c" opacity="0.5"/><rect x="48" y="15" width="12" height="35" fill="#0f3460" opacity="0.6"/><rect x="64" y="28" width="8" height="22" fill="#1a1a2e" opacity="0.5"/><path d="M5 50 L12 40 L20 50" fill="none" stroke="#c8a45c" stroke-width="1" opacity="0.4"/><line x1="0" y1="50" x2="80" y2="50" stroke="#c8a45c" stroke-width="1"/></svg></div>
+        <h3>Albuquerque</h3>
+        <p>Government, Education, Infrastructure</p>
+      </div>
+      <div class="market-card">
+        <div class="city-img"><svg viewBox="0 0 80 50" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 L15 35 L30 42 L50 30 L65 38 L80 28" fill="none" stroke="#c8a45c" stroke-width="1.5" opacity="0.5"/><rect x="20" y="32" width="8" height="18" fill="#1a1a2e" opacity="0.6"/><rect x="35" y="28" width="6" height="22" fill="#0f3460" opacity="0.6"/><rect x="50" y="25" width="10" height="25" fill="#c8a45c" opacity="0.4"/><path d="M60 50 Q65 35 70 50" fill="#1a1a2e" opacity="0.3"/><line x1="0" y1="50" x2="80" y2="50" stroke="#c8a45c" stroke-width="1"/></svg></div>
+        <h3>El Paso</h3>
+        <p>Border Infrastructure, Industrial, Civil</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Build Your Team?</h2>
+    <p>Whether you need one key hire or a full project team, we're ready to deliver.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn-primary">Start a Search →</a>
+      <a href="#contact" class="btn-secondary">Submit Your Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <div class="section-title">Let's Talk</div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Start a Conversation</h3>
+        <p style="font-size: 15px; color: var(--text-light); margin-bottom: 30px;">
+          Whether you're a construction company looking to hire or a professional ready for your next opportunity, we'd like to hear from you.
+        </p>
+        <div class="contact-item">
+          <div class="icon-circle">📧</div>
+          <span>michael@hawkstonecg.com</span>
+        </div>
+        <div class="contact-item">
+          <div class="icon-circle">📞</div>
+          <span>Contact us for a consultation</span>
+        </div>
+        <div class="contact-item">
+          <div class="icon-circle">📍</div>
+          <span>Texas & Southwest United States</span>
+        </div>
+        <div class="contact-item">
+          <div class="icon-circle">🔗</div>
+          <span>linkedin.com/company/hawkstonecg</span>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We will be in touch within 24 hours.');">
+        <div class="form-row">
+          <input type="text" placeholder="First Name" required>
+          <input type="text" placeholder="Last Name" required>
+        </div>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number">
+        <select>
+          <option value="">I am a...</option>
+          <option value="client">Company looking to hire</option>
+          <option value="candidate">Construction professional</option>
+          <option value="other">Other</option>
+        </select>
+        <textarea placeholder="Tell us about your needs..."></textarea>
+        <button type="submit" class="btn-submit">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="mark-sm">H</div>
+        <p style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff; margin-bottom: 8px;">Hawkstone Consulting Group</p>
+        <p>Building Careers. Strengthening Teams.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <a href="#services">Direct Hire</a>
+        <a href="#services">Contract Staffing</a>
+        <a href="#services">Executive Search</a>
+        <a href="#services">Market Intelligence</a>
+      </div>
+      <div class="footer-links">
+        <h4>Specialties</h4>
+        <a href="#specialties">Project Managers</a>
+        <a href="#specialties">Superintendents</a>
+        <a href="#specialties">Estimators</a>
+        <a href="#specialties">Executives</a>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <a href="#">LinkedIn</a>
+        <a href="mailto:info@hawkstonecg.com">Email Us</a>
+        <a href="#contact">Contact Form</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Hawkstone Consulting Group. All rights reserved. | hawkstonecg.com
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
